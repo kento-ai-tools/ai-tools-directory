@@ -1,15 +1,15 @@
 ---
 const tools = [
-  { name: "ChatGPT（OpenAI）", desc: "文章作成・相談・アイデア出しに使える万能AI", url: "https://chat.openai.com" },
-  { name: "Canva（AIデザイン）", desc: "SNS画像・チラシ・資料をAIで時短デザイン", url: "https://www.canva.com" },
-  { name: "Notion AI", desc: "メモや資料の要約・整理をAIがサポート", url: "https://www.notion.so" },
-  { name: "Grammarly", desc: "英文のチェック・修正を自動化", url: "https://www.grammarly.com" },
-  { name: "Jasper / Copy.ai", desc: "広告文や商品説明など“売る文章”を生成", url: "https://www.jasper.ai" },
-  { name: "Pictory.ai / Descript", desc: "動画編集や字幕作成をAIで効率化", url: "https://pictory.ai" },
-  { name: "Zapier / Make.com", desc: "サービス連携で作業を自動化（通知・登録など）", url: "https://zapier.com" },
-  { name: "Motion", desc: "AIが予定を自動で組み立てるタスク管理", url: "https://www.usemotion.com" },
-  { name: "Tidio（AIチャットボット）", desc: "問い合わせ対応をチャットボットで自動化", url: "https://www.tidio.com" },
-  { name: "Shopify Magic / Systeme.io", desc: "販売ページ・商品説明をAIで作成", url: "https://www.shopify.com" },
+  { name: "ChatGPT（OpenAI）", desc: "文章作成・相談・アイデア出しに使える万能AI", url: "https://chat.openai.com", rec: "https://openai.com" },
+  { name: "Canva（AIデザイン）", desc: "SNS画像・チラシ・資料をAIで時短デザイン", url: "https://www.canva.com", rec: "https://www.canva.com" },
+  { name: "Notion AI", desc: "メモや資料の要約・整理をAIがサポート", url: "https://www.notion.so", rec: "https://www.notion.so" },
+  { name: "Grammarly", desc: "英文のチェック・修正を自動化", url: "https://www.grammarly.com", rec: "https://www.grammarly.com" },
+  { name: "Jasper / Copy.ai", desc: "広告文や商品説明など“売る文章”を生成", url: "https://www.jasper.ai", rec: "https://www.jasper.ai" },
+  { name: "Pictory.ai / Descript", desc: "動画編集や字幕作成をAIで効率化", url: "https://pictory.ai", rec: "https://pictory.ai" },
+  { name: "Zapier / Make.com", desc: "サービス連携で作業を自動化（通知・登録など）", url: "https://zapier.com", rec: "https://zapier.com" },
+  { name: "Motion", desc: "AIが予定を自動で組み立てるタスク管理", url: "https://www.usemotion.com", rec: "https://www.usemotion.com" },
+  { name: "Tidio（AIチャットボット）", desc: "問い合わせ対応をチャットボットで自動化", url: "https://www.tidio.com", rec: "https://www.tidio.com" },
+  { name: "Shopify Magic / Systeme.io", desc: "販売ページ・商品説明をAIで作成", url: "https://www.shopify.com", rec: "https://www.shopify.com" },
 ];
 ---
 
@@ -192,6 +192,17 @@ const tools = [
   <body>
     <main>
     <header class="hero">
+<section style="margin-top:14px;border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(255,255,255,.04);">
+  <div class="badge">スポンサー枠</div>
+  <h2 style="margin:10px 0 6px;">このサイトに掲載しませんか？</h2>
+  <p style="margin:0;color:var(--muted);">
+    新しいAIツール・サービスの掲載（PR）を受け付けています。掲載は固定枠で表示されます。
+  </p>
+  <div class="toolbar" style="margin-top:10px;">
+    <a class="btn primary" href="#contact">掲載を申し込む</a>
+  </div>
+</section>
+
   <div class="badge">更新できるAIツールまとめ / 個人事業主向け</div>
   <h1>個人事業主向け AIツールまとめ</h1>
   <p>
@@ -218,6 +229,11 @@ const tools = [
             <a class="btn" href={t.url} target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
           </article>
         ))}
+
+<div class="meta">
+  <span class="tag">おすすめ</span>
+  <a class="btn primary" href={t.rec} target="_blank" rel="noopener noreferrer">おすすめリンク</a>
+</div>
       </section>
 
       <footer>
