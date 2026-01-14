@@ -1,15 +1,62 @@
 ---
+const tools = [
+  { name: "ChatGPT（OpenAI）", desc: "文章作成・相談・アイデア出しに使える万能AI", url: "https://chat.openai.com" },
+  { name: "Canva（AIデザイン）", desc: "SNS画像・チラシ・資料をAIで時短デザイン", url: "https://www.canva.com" },
+  { name: "Notion AI", desc: "メモや資料の要約・整理をAIがサポート", url: "https://www.notion.so" },
+  { name: "Grammarly", desc: "英文のチェック・修正を自動化", url: "https://www.grammarly.com" },
+  { name: "Jasper / Copy.ai", desc: "広告文や商品説明など“売る文章”を生成", url: "https://www.jasper.ai" },
+  { name: "Pictory.ai / Descript", desc: "動画編集や字幕作成をAIで効率化", url: "https://pictory.ai" },
+  { name: "Zapier / Make.com", desc: "サービス連携で作業を自動化（通知・登録など）", url: "https://zapier.com" },
+  { name: "Motion", desc: "AIが予定を自動で組み立てるタスク管理", url: "https://www.usemotion.com" },
+  { name: "Tidio（AIチャットボット）", desc: "問い合わせ対応をチャットボットで自動化", url: "https://www.tidio.com" },
+  { name: "Shopify Magic / Systeme.io", desc: "販売ページ・商品説明をAIで作成", url: "https://www.shopify.com" },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>個人事業主向け AIツールまとめ</title>
+    <meta name="description" content="個人事業主・フリーランス向けに仕事で使えるAIツールを厳選して紹介します。" />
+    <style>
+      body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; margin: 0; }
+      main { max-width: 900px; margin: 0 auto; padding: 24px; }
+      header { padding: 20px 0 10px; }
+      h1 { margin: 0 0 8px; }
+      p { line-height: 1.7; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 16px; }
+      .card { border: 1px solid #eee; border-radius: 12px; padding: 14px; background: #fff; }
+      .card h3 { margin: 0 0 6px; font-size: 16px; }
+      .card p { margin: 0 0 10px; color: #444; font-size: 14px; }
+      a.btn { display: inline-block; padding: 8px 10px; border-radius: 10px; border: 1px solid #ddd; text-decoration: none; }
+      footer { margin-top: 24px; padding-top: 14px; border-top: 1px solid #eee; font-size: 12px; color: #666; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>個人事業主向け AIツールまとめ</h1>
+        <p>
+          文章作成・デザイン・業務自動化・販売支援など、仕事に使えるAIツールを厳選してまとめています。
+          （このサイトはツール追加・更新ができる構成です）
+        </p>
+      </header>
+
+      <section class="grid">
+        {tools.map((t) => (
+          <article class="card">
+            <h3>{t.name}</h3>
+            <p>{t.desc}</p>
+            <a class="btn" href={t.url} target="_blank" rel="noopener noreferrer">公式サイトを見る</a>
+          </article>
+        ))}
+      </section>
+
+      <footer>
+        <p>※各サービスの仕様・料金は変更されることがあります。最新情報は公式サイトで確認してください。</p>
+      </footer>
+    </main>
+  </body>
 </html>
+
