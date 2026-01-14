@@ -191,13 +191,24 @@ const tools = [
   </head>
   <body>
     <main>
-      <header>
-        <h1>個人事業主向け AIツールまとめ</h1>
-        <p>
-          文章作成・デザイン・業務自動化・販売支援など、仕事に使えるAIツールを厳選してまとめています。
-          （このサイトはツール追加・更新ができる構成です）
-        </p>
-      </header>
+    <header class="hero">
+  <div class="badge">更新できるAIツールまとめ / 個人事業主向け</div>
+  <h1>個人事業主向け AIツールまとめ</h1>
+  <p>
+    文章作成・デザイン・業務自動化・販売支援など、仕事に使えるAIツールを厳選。
+    まずは10選、必要に応じて増やせる構成です。
+  </p>
+
+  <div class="toolbar">
+    <input class="search" placeholder="（見た目用）ツール名で検索… ※次のステップで実装できます" disabled />
+    <a class="btn primary" href="#tools">ツール一覧へ</a>
+    <a class="btn" href="https://github.com/kento-ai-tools/ai-tools-directory" target="_blank" rel="noopener noreferrer">リポジトリ</a>
+  </div>
+</header>
+
+<h2 id="tools" style="margin-top:18px;margin-bottom:6px;">ツール一覧</h2>
+<p style="margin-bottom:10px;">気になるツールから試してOK。まずは「文章作成」「デザイン」「自動化」がおすすめ。</p>
+
 
       <section class="grid">
         {tools.map((t) => (
