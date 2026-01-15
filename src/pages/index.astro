@@ -210,18 +210,21 @@ const tools = [
     まずは10選、必要に応じて増やせる構成です。
   </p>
 
-  <div class="toolbar">
-    <input class="search" placeholder="（見た目用）ツール名で検索… ※次のステップで実装できます" disabled />
-    <a class="btn primary" href="#tools">ツール一覧へ</a>
-    <a class="btn" href="https://github.com/kento-ai-tools/ai-tools-directory" target="_blank" rel="noopener noreferrer">リポジトリ</a>
-  </div>
+<div class="toolbar">
+  <input id="search" class="search" placeholder="ツール名で検索（例：Canva / Zapier）" />
+  <button id="clear" class="btn" type="button">クリア</button>
+  <a class="btn primary" href="#tools">ツール一覧へ</a>
+  <a class="btn" href="https://github.com/kento-ai-tools/ai-tools-directory" target="_blank" rel="noopener noreferrer">リポジトリ</a>
+</div>
+<p id="resultCount" style="margin-top:10px;color:var(--muted);"></p>
+
 </header>
 
 <h2 id="tools" style="margin-top:18px;margin-bottom:6px;">ツール一覧</h2>
 <p style="margin-bottom:10px;">気になるツールから試してOK。まずは「文章作成」「デザイン」「自動化」がおすすめ。</p>
 
 
-      <section class="grid">
+      <section id="tools" class="grid">
         {tools.map((t) => (
           <article class="card">
             <h3>{t.name}</h3>
@@ -264,6 +267,43 @@ const tools = [
 
 
     </main>
+<script>
+  const input = document.getElementById("search");
+  const clearBtn = document.getElementById("clear");
+  const cards = Array.from(document.querySelectorAll(".card"));
+  const countEl = document.getElementById("resultCount");
+
+  function normalize(s) {
+    return (s || "").toLowerCase().replace(/\s+/g, "");
+  }
+
+  function update() {
+    const q = normalize(input.value);
+    let shown = 0;
+
+    cards.forEach((card) => {
+      const text = normalize(card.innerText);
+      const visible = q === "" || text.includes(q);
+      card.style.display = visible ? "" : "none";
+      if (visible) shown += 1;
+    });
+
+    countEl.textContent = q === ""
+      ? `全${cards.length}件を表示中`
+      : `「${input.value}」の検索結果：${shown}件 / 全${cards.length}件`;
+  }
+
+  input.addEventListener("input", update);
+  clearBtn.addEventListener("click", () => {
+    input.value = "";
+    input.focus();
+    update();
+  });
+
+  // 初期表示
+  update();
+</script>
+
   </body>
 </html>
 
